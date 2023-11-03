@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display product</title>
+</head>
+<body>
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">PRODUCT DISPLAY</h4>
+                  <p class="card-description">
+                    Add class <code>.table-dark</code>
+                  </p>
+                  <div class="table-responsive pt-3">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th>
+                            CATEGORY NAME
+                          </th>
+                          <th>
+                            PRODUCT NAME
+                          </th>
+                          <th>
+                           DESCRIPTION
+                          </th>
+                          <th>
+                           PRICE
+                          </th>
+                             <th>
+                                IMAGE
+
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in data %}
+                        <tr>
+                          <td>
+                              {{i.cname}}
+
+                          </td>
+                          <td>
+                           {{i.pname}}
+                          </td>
+                          <td>
+                            {{i.des}}
+                          </td>
+                          <td>
+                            {{i.pri}}
+                          </td>
+                            <td>
+                           <img src="{{i.pimg.url}}" height="100px" width="100px">
+                          </td>
+                            <td>
+                                <form action="{% url 'edit_product' dataid=i.id %}">
+                                    <button type="submit" class="btn btn-primary mr-2">edit</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'delete_product' dataid=i.id %}">
+                                    <button type="submit" class="btn btn-primary mr-2">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                      {% endfor %}
+
+
+
+
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+</body>
+</html>
+{% endblock %}

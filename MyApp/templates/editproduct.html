@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit product</title>
+</head>
+<body>
+   <form method="post" action="{% url 'update_product' dataid=product.id %}" enctype="multipart/form-data">
+       {% csrf_token %}
+                      <div class="form-group" >
+                   <div class="col-sm-9">
+                     <label for="exampleInputName1"> category name</label>
+                              <select class="form-control" name="cname">
+
+                              <option>{{product.cname}}</option>
+
+                            </select>
+                          </div>
+                  </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1"> product name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="product name" name="pname" value="{{product.pname}}">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleTextarea1">description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" name="des">{{product.des}}</textarea>
+                    </div>
+                       <div class="form-group">
+                      <label for="exampleInputCity1">price</label>
+                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="price" name="pri" value="{{product.pri}}">
+                    </div>
+                      <input type="file" name="pimg">
+       <img src="{{product.pimg.url}}" width="100px" height="100px">
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">update</button>
+
+                  </form>
+
+</body>
+</html>
+{% endblock %}

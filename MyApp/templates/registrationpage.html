@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Contact details</h4>
+                  <p class="card-description">
+                    Add class <code>.table-dark</code>
+                  </p>
+                  <div class="table-responsive pt-3">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th>
+                            NAME
+                          </th>
+                          <th>
+                            PHONE
+                          </th>
+                          <th>
+                           EMAIL
+                          </th>
+                          <th>
+                           USERNAME
+                          </th>
+                            <th>
+                           PASSWORD
+                          </th>
+                            <th>
+                           RE_PASSWORD
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in data %}
+                        <tr>
+                          <td>
+                              {{i.name}}
+
+                          </td>
+                          <td>
+                           {{i.mob}}
+                          </td>
+                          <td>
+                            {{i.email}}
+                          </td>
+                          <td>
+                            {{i.username}}
+                          </td>
+                            <td>
+                            {{i.password}}
+                          </td>
+                            <td>
+                            {{i.re_password}}
+                          </td>
+
+
+                            <td>
+                                <form>
+                                    <button type="submit" class="btn btn-primary mr-2">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  </form>
+
+
+</body>
+</html>
+{% endblock %}
