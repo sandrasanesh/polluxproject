@@ -20,3 +20,4 @@ class cartdb(models.Model):
     des=models.CharField(max_length=200,null=True,blank=True)
     total_price=models.IntegerField(null=True,blank=True)
 
+
